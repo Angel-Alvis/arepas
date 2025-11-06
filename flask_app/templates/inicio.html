@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arepas</title>
+</head>
+<body>
+    <h1>Nuevo Pedido</h1>
+    <form action="/crear_pedido" method="post">
+        <label for="nombre">Nombre Cliente: </label>
+        <input type="text" name="nombre" id="nombre">
+        <label for="cantidad">Cantidad</label>
+        <input type="number" name="cantidad" id="cantidad">
+        <label for="relleno">Relleno</label>
+        <input type="text" name='relleno' id='relleno'>
+        <button type="submit">Crear Pedido</button>
+    </form>
+        {% with messages = get_flashed_messages() %}<!-- declara una variable llamada mensajes -->
+           {% if messages %}<!-- revisa si hay algún mensaje -->
+                   {% for message in messages %}   <!-- recorre los mensajes -->
+                       <p>{{message}}</p>  <!-- muestra cada mensaje en una etiqueta de párrafo -->
+                   {% endfor %}
+           {% endif %}
+       {% endwith %}
+    <a href={{url_for('pagPedidos')}}>Ver pedidos</a>
+</body>
+</html>

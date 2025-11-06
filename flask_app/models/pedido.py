@@ -3,6 +3,7 @@ from flask import flash
 
 class Pedido:
     def __init__(self, data):
+        self.id=data['id']
         self.nombre=data["nombre"]
         self.cantidad=data['cantidad']
         self.relleno=data['relleno']
@@ -14,7 +15,10 @@ class Pedido:
         query='''select *
         from arepas;'''
         resultados=MySQLConnection('db_arepas').query_db(query)
-        return resultados
+        pedidos=[]
+        for fila in resultados:
+            pedidos.append(cls(fila))
+        return pedidos
     
     @classmethod
     def insert(cls,datos):

@@ -6,8 +6,10 @@ from flask_app.models import pedido
 def pag_inicio():
     return render_template('inicio.html')
 
-@app.route('/crear_pedido', methods=['POST'])
+@app.route('/crear_pedido', methods=['POST','GET'])
 def form_pedido():
+    if request.method=='GET':
+        return redirect('/')
     datos={
         'nombre':request.form['nombre'],
         'cantidad':request.form['cantidad'],

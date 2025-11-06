@@ -10,19 +10,35 @@
     <form action="/crear_pedido" method="post">
         <label for="nombre">Nombre Cliente: </label>
         <input type="text" name="nombre" id="nombre">
+        {% with mensajes = get_flashed_messages(category_filter=["nombre"]) %}
+            {% if mensajes %}
+             <p>{{ mensajes[0] }}</p>
+            {% endif %}
+        {% endwith %}
+        <br>
         <label for="cantidad">Cantidad</label>
         <input type="number" name="cantidad" id="cantidad">
+        {% with mensajes = get_flashed_messages(category_filter=["cantidad"]) %}
+            {% if mensajes %}
+             <p>{{ mensajes[0] }}</p>
+            {% endif %}
+        {% endwith %}
+        <br>
         <label for="relleno">Relleno</label>
         <input type="text" name='relleno' id='relleno'>
+        {% with mensajes = get_flashed_messages(category_filter=["relleno"]) %}
+            {% if mensajes %}
+             <p>{{ mensajes[0] }}</p>
+            {% endif %}
+        {% endwith %}
+        <br>
         <button type="submit">Crear Pedido</button>
     </form>
-        {% with messages = get_flashed_messages() %}<!-- declara una variable llamada mensajes -->
-           {% if messages %}<!-- revisa si hay algún mensaje -->
-                   {% for message in messages %}   <!-- recorre los mensajes -->
-                       <p>{{message}}</p>  <!-- muestra cada mensaje en una etiqueta de párrafo -->
-                   {% endfor %}
-           {% endif %}
-       {% endwith %}
+        {% with mensajes = get_flashed_messages(category_filter=["exito"]) %}
+            {% if mensajes %}
+             <p>{{ mensajes[0] }}</p>
+            {% endif %}
+        {% endwith %}
     <a href={{url_for('pagPedidos')}}>Ver pedidos</a>
 </body>
 </html>

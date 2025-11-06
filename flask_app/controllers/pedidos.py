@@ -16,7 +16,7 @@ def form_pedido():
     if not pedido.Pedido.validar_pedido(datos):
         return redirect('/')
     pedido.Pedido.insert(datos)
-    return redirect('/') 
+    return redirect('/')
 
 @app.route('/ver_pedidos')
 def pagPedidos():

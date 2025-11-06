@@ -26,14 +26,14 @@ class Pedido:
     def validar_pedido(pedido):
         esCorrecto = True
         if len(pedido["nombre"]) <= 2:
-            flash('Nombre no valido')
+            flash('Nombre no valido','nombre')
             esCorrecto = False
         if int(pedido["cantidad"]) <= 0:
-            flash('Cantidad no valida')
+            flash('Cantidad no valida','cantidad')
             esCorrecto = False
         if len(pedido['relleno']) <= 2:
-            flash('Relleno no valido')
+            flash('Relleno no valido','relleno')
             esCorrecto = False
         if esCorrecto:
-            flash('Pedido realizado.')
+            flash('Pedido realizado', 'exito')
         return esCorrecto

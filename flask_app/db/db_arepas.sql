@@ -18,7 +18,7 @@ USE `db_arepas` ;
 -- Table `db_arepas`.`arepas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_arepas`.`arepas` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NOT NULL,
   `cantidad` INT NOT NULL,
   `relleno` VARCHAR(45) NOT NULL,
